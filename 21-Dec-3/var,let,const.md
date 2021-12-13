@@ -3,6 +3,12 @@
 `var`와 `let`은 변수로써 값을 바꿀 수 있는 특성을 가지고 있습니다.  
 `const`는 상수로써 처음에 값이 지정되면 바꿀 수 없는 특성을 가지고 있습니다.
 
+[1. 특징](#1-특징)  
+[2. Scope](#2-scope)
+[3. Hoisting](#3-hoisting)
+[4. window](#4-window)
+[5. 암묵적인 전역변수 선언](#5-암묵적인 전역변수 선언)
+
 ## 1. 특징
 ### var
 ```javascript
@@ -152,7 +158,7 @@ let a = 0;
 `let`는 블록 스코프를 가지고, `var`는 함수 스코프를 가지고 있기 때문에 `let`으로 변수를 선언 후 블록에서 `var`를 선언할 경우,  
 `var`는 스코프 최상단으로 호이스팅되어 중복 선언 오류를 출력합니다.
 
-## 4. this Binding
+## 4. window
 ### var
 ```javascript
 var var1 = 0; // this.var1
