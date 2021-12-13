@@ -4,10 +4,10 @@
 `const`는 상수로써 처음에 값이 지정되면 바꿀 수 없는 특성을 가지고 있습니다.
 
 [1. 특징](#1-특징)  
-[2. Scope](#2-scope)
-[3. Hoisting](#3-hoisting)
-[4. window](#4-window)
-[5. 암묵적인 전역변수 선언](#5-암묵적인 전역변수 선언)
+[2. Scope](#2-scope)  
+[3. Hoisting](#3-hoisting)  
+[4. window](#4-window)  
+[5. 암묵적인 전역변수 선언](#5-암묵적인-전역변수-선언)
 
 ## 1. 특징
 ### var
