@@ -233,3 +233,4 @@ console.log(typeof y) // undefined
 * [var, let, const 차이점](https://velog.io/@bathingape/JavaScript-var-let-const-차이점)
 * [var, let, const의 차이 ⏤ 변수 선언 및 할당, 호이스팅, 스코프](https://www.howdy-mj.me/javascript/var-let-const/)
 * [자바스크립트 개발자라면 알아야 할 33가지 개념 #6 함수와 블록 스코프 (번역)](https://velog.io/@jakeseo_me/자바스크립트-개발자라면-알아야-할-33가지-개념-6-함수와-블록-스코프-번역-dijuhrub1x)
+* [실행 컨텍스트와 자바스크립트의 동작 원리](https://poiemaweb.com/js-execution-context)
