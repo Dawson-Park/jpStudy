@@ -40,7 +40,7 @@ foo();
 
 자바스크립트 엔진은 실행 컨텍스트를 스택(Call Stack)으로 관리한다.
 
-[그림]
+![1](https://user-images.githubusercontent.com/94957353/147031643-99bc40c3-0a79-41f0-ba90-dc0fae2c35b1.png)
 
 1. 제어권이 실행 가능한 코드로 이동하면, 스택 구조를 가지는 실행 컨텍스트 스택이 생성된다.
 2. 전역 코드로 제어권이 진입하면 전역 실행 컨텍스트가 생성되고, 스택에 쌓인다. 전역 실행 컨텍스트는 애플리케이션이 종료될 때까지 유지된다.
@@ -68,17 +68,17 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 - **전역 컨텍스트**  
   Variable Object는 유일하며 최상위에 위치하고, 모든 전역 변수와 전역 함수 등을 포함하는 **전역 객체(Global Object, GO)** 를 가리킨다. 전역 객체는 전역에 선언된 전역 변수와 전역 함수를 프로퍼티로 소유한다.
 
-[그림]
+![2](https://user-images.githubusercontent.com/94957353/147031657-4fa2dde8-0d65-487c-92a0-558cdd144045.png)
 
 - **함수 컨텍스트**  
   Variable Object는 **활성 객체(Activation Object, AO)** 를 가리키며 매개변수와 인수들의 정보를 배열의 형태로 담고 있는 객체인 `arguments object`가 추가된다.
 
-[그림]
+![3](https://user-images.githubusercontent.com/94957353/147031666-661b59cc-294c-4b10-a597-cdea05b0779f.png)
 
 ### 2.2. Scope Chain
 스코프 체인(Scope Chain, SC)은 일종의 리스트로써 전역 객체와 함수의 활성 객체를 차례로 가리키고 있다.
 
-[그림]
+![4](https://user-images.githubusercontent.com/94957353/147031673-4da791ed-4ef3-4c4d-b382-98766296921b.png)
 
 엔진은 스코프 체인을 통해 렉시컬 스코프(선언으로 정해지는 변수의 범위)를 파악한다. 함수가 중첩되어 있을 때, 하위함수에서 상위함수의 스코프와 전역 스코프까지 참조할 수 있는데, 스코프 체인을 통해 가능하다.이렇듯 하위 스코프와 상위 스코프가 연결되기 때문에 이를 스코프 체인이라 부르는 것이다.  
 스코프 체인은 함수의 숨겨진 프로퍼티인 `[[Scope]]`로 참조할 수 있다.
@@ -214,25 +214,25 @@ c = multiply(a, 30);
 ```
 
 ### 5.1. 전역 코드에 진입
-[그림]
+![슬라이드2](https://user-images.githubusercontent.com/94957353/147031771-2c642b80-6934-453c-b35b-670b29a2f482.PNG)
 1. 전역 코드에 진입한다
 2. 실행 컨텍스트 스택과 전역 객체가 만들어진다.  
   전역 객체는 DOM, BOM, Built-in Object를 포함한다
 
 ### 5.2. 전역 실행 컨텍스트 생성
-[그림]
+![슬라이드3](https://user-images.githubusercontent.com/94957353/147031780-602f088a-aec4-4c68-9440-23704cddafca.PNG)
 1. 전역 실행 컨텍스트가 생성된다
 2. 생성된 컨텍스트로 제어권이 이동한다
 3. 전역 컨텍스트의 렉시컬 환경과 변수 환경이 초기화 된다
 4. 환경 레코드에 변수 선언과 함수가 호이스팅 된다
 
 ### 5.3. 전역 실행 컨텍스트 실행
-[그림]
+![슬라이드4](https://user-images.githubusercontent.com/94957353/147031792-26b52e21-71e1-4bd5-9aa0-97ea1d717ce4.PNG)
 1. Execution Phase가 진행되면서 `const`와 `let`의 값이 초기화 및 할당된다
 2. `mutiply(a, 30)` 구문이 실행된다
 
 ### 5.4. multiply 함수 실행 컨텍스트 생성
-[그림]
+![슬라이드5](https://user-images.githubusercontent.com/94957353/147031797-0c952760-de11-4ebb-ba39-a3f9f02fc165.PNG)
 1. multiply 함수 실행 컨텍스트가 생성된다
 2. 제어권이 multiply 실행 컨텍스트로 이동한다
 3. multiply 컨텍스트의 렉시컬 환경과 변수 환경이 초기화 된다
@@ -241,7 +241,7 @@ c = multiply(a, 30);
 6. `this`는 별도의 바인딩이 없었기 때문에 전역 객체를 가리킨다
 
 ### 5.5. multiply 함수 실행 컨텍스트 실행
-[그림]
+![슬라이드6](https://user-images.githubusercontent.com/94957353/147031805-7fc34e2f-01c4-436a-8fa9-f1b38d2254ca.PNG)
 1. `var g`에 20이 할당된다
 2. `return e*f*g` 구문이 실행된다
 3. 인자의 첫번째 값 `e`는 `a`로 multiply 함수 실행 컨텍스트에서 해당 값을 찾는다
@@ -252,26 +252,21 @@ c = multiply(a, 30);
 8. 세 값을 연산한 후 `return` 구문을 실행한다
 
 ### 5.6. multiply 함수 종료
-[그림]
+![슬라이드7](https://user-images.githubusercontent.com/94957353/147031814-4b2aa344-3093-4ac9-b72e-6c40023d784b.PNG)
 1. `return` 구문에 의해 `1200`이 반환된다
 2. 반환된 값은 `var c`에 초기화 및 할당된다
 3. multiply 실행 컨텍스트가 종료되어 스택에서 pop 된다
 4. 제어권은 남아있는 최상단 실행 컨텍스트인 전역 실행 컨텍스트가 가져간다
 
-### 5.7. 전역 코드 종료
-[그림]
-1. 모든 구문이 실행되어 전역 실행 컨텍스트가 종료된다
-2. 전역 실행 컨텍스트가 스택에서 pop 된다
-
 
 ## 참고자료
-- https://poiemaweb.com/js-execution-context
-- https://solveaproblem.dev/javascript-execution-context/
-- https://iamsjy17.github.io/javascript/2019/06/10/js33_execution_context.html
-- https://velog.io/@kk3june/Execution-Context-실행-컨텍스트
-- https://velog.io/@kwonh/ES6-Javascript-Execution-Context실행문맥-실행컨텍스트
-- https://junilhwang.github.io/TIL/Javascript/Domain/Execution-Context/#_1-%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7
-- https://catsbi.oopy.io/fffa6930-ca30-4f7e-88b6-28011fde5867
-- https://taenami.tistory.com/109
-- https://ljtaek2.tistory.com/145
-- https://ljtaek2.tistory.com/140
+- [실행 컨텍스트와 자바스크립트의 동작 원리](https://poiemaweb.com/js-execution-context)
+- [Javascript 톺아보기 2.실행 컨텍스트](https://solveaproblem.dev/javascript-execution-context/)
+- [Execution Context와 Lexical Environment](https://iamsjy17.github.io/javascript/2019/06/10/js33_execution_context.html)
+- [JS | Execution Context: 실행 컨텍스트](https://velog.io/@kk3june/Execution-Context-실행-컨텍스트)
+- [Javascript Execution Context](https://velog.io/@kwonh/ES6-Javascript-Execution-Context실행문맥-실행컨텍스트)
+- [자바스크립트 실행 컨텍스트](https://junilhwang.github.io/TIL/Javascript/Domain/Execution-Context/#_1-%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7)
+- [실행 컨텍스트와 자바스크립트의 동작 원리](https://catsbi.oopy.io/fffa6930-ca30-4f7e-88b6-28011fde5867)
+- [코어 자바스크립트 - 실행 컨텍스트](https://taenami.tistory.com/109)
+- [자바스크립트 - 렉시컬 스코프(Lexical Scope)](https://ljtaek2.tistory.com/145)
+- [자바스크립트 - 스코프 체인(scope chain)란?](https://ljtaek2.tistory.com/140)
