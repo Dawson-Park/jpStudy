@@ -189,7 +189,7 @@ Lexical Environment는 다음과 같은 일을 한다.
 
 - **Environment Records**
   - **Declarative environment record** : 식별자를 저장
-  - **Object environment record** : 전역 코드에 대한 렉시컬 환경. `window` 객체를 정의하고 저장한다.
+  - **Object environment record** : 전역 코드에서의 환경 레코드. `window` 객체를 정의하고 저장한다.
 - **Reference to outer environment** : 외부 렉시컬 환경에 대한 접근을 정의한다.
 - **This binding** : this 값을 결정한다.
   - 함수 컨텍스트에서 `object reference`로 호출했다면 this는 해당 객체를 가리킨다
@@ -233,16 +233,16 @@ c = multiply(a, 30);
 2. `mutiply(a, 30)` 구문이 실행된다
 
 ### 5.4. multiply 함수 실행 컨텍스트 생성
-![슬라이드5](https://user-images.githubusercontent.com/94957353/147031797-0c952760-de11-4ebb-ba39-a3f9f02fc165.PNG)
+![프레젠테이션1](https://user-images.githubusercontent.com/94957353/147210349-723551e8-1d57-46ed-9c7f-4d1b54be32f2.png)
 1. multiply 함수 실행 컨텍스트가 생성된다
 2. 제어권이 multiply 실행 컨텍스트로 이동한다
 3. multiply 컨텍스트의 렉시컬 환경과 변수 환경이 초기화 된다
 4. 환경 레코드에 변수 선언이 호이스팅 된다
-5. 외부 환경 참조는 전역 실행 컨텍스트의 렉시컬 환경을 가리킨다
+5. 외부 환경 참조는 전역 실행 컨텍스트의 환경 레코드를 가리킨다
 6. `this`는 별도의 바인딩이 없었기 때문에 전역 객체를 가리킨다
 
 ### 5.5. multiply 함수 실행 컨텍스트 실행
-![슬라이드6](https://user-images.githubusercontent.com/94957353/147031805-7fc34e2f-01c4-436a-8fa9-f1b38d2254ca.PNG)
+![프레젠테이션12](https://user-images.githubusercontent.com/94957353/147210412-23124b47-0eb2-4780-9024-c5a6554138c7.png)
 1. `var g`에 20이 할당된다
 2. `return e*f*g` 구문이 실행된다
 3. 인자의 첫번째 값 `e`는 `a`로 multiply 함수 실행 컨텍스트에서 해당 값을 찾는다
