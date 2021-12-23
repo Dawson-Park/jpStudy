@@ -50,13 +50,14 @@ foo();
 ## 2. 실행 컨텍스트의 구성
 <details><summary><b>ES4 까지의 실행 콘텍스트 구조</b></summary>
 
+### 2.1. ES4 까지의 실행 콘텍스트 구조
 실행 컨텍스트는 물리적으로는 객체의 형태를 가지며 3가지 프로퍼티를 소유한다.
 
 1. **Variable Object** : 변수 객체
 2. **Scope chain** : 스코프 체인
 3. **this Value** : `this`
 
-### 2.1. Variable Object
+#### 2.1.1. Variable Object
 변수객체(Variable Object, VO)란, 자바스크립트 엔진이 실행 컨텍스트를 생성할 때 실행에 필요한 정보를 담아놓은 객체를 의미한다. Variable Object는 코드가 실행될 때 엔진에 의해 참조되며, 코드에선 접근할 수 없다.
 
 - 변수
@@ -75,7 +76,7 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 
 ![3](https://user-images.githubusercontent.com/94957353/147031666-661b59cc-294c-4b10-a597-cdea05b0779f.png)
 
-### 2.2. Scope Chain
+#### 2.1.2. Scope Chain
 스코프 체인(Scope Chain, SC)은 일종의 리스트로써 전역 객체와 함수의 활성 객체를 차례로 가리키고 있다.
 
 ![4](https://user-images.githubusercontent.com/94957353/147031673-4da791ed-4ef3-4c4d-b382-98766296921b.png)
@@ -83,13 +84,14 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 엔진은 스코프 체인을 통해 렉시컬 스코프(선언으로 정해지는 변수의 범위)를 파악한다. 함수가 중첩되어 있을 때, 하위함수에서 상위함수의 스코프와 전역 스코프까지 참조할 수 있는데, 스코프 체인을 통해 가능하다.이렇듯 하위 스코프와 상위 스코프가 연결되기 때문에 이를 스코프 체인이라 부르는 것이다.  
 스코프 체인은 함수의 숨겨진 프로퍼티인 `[[Scope]]`로 참조할 수 있다.
 
-### 2.3. this Value
+#### 2.1.3. this Value
 `this` 프로퍼티에는 `this` 값이 할당 된다. `this`에 할당되는 값은 함수의 호출 패턴에 의해 결정된다.
 
 </details>
 
 <details><summary><b>ES5 이후의 실행 콘텍스트 구조</b></summary>
 
+### 2.2. ES5 이후의 실행 콘텍스트 구조
 실행 컨텍스트는 2가지 구성을 가지고 있다.
 
 1. **Variable Environment** : 변수 환경
@@ -98,10 +100,10 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 
 ES5까지 Variable Environment와 Lexical Environment의 차이점은 최초값을 유지하느냐의 차이 뿐이었지만, ES6+ 이후부터는 VE엔 var를, LE엔 let와 const를 저장한다는 차이점이 생겼다.
 
-### 2.1. Variable Environment
+#### 2.2.1. Variable Environment
 변수 환경에 담겨진 내용은 렉시컬 환경과 동일하다. 다만 최초 실행 시의 스냅샷을 유지하는 특성이 있다. ES6+ 부터는 변수 중 var로 선언된 변수만 취급한다. 실행 컨텍스트를 실행할 때 변수 환경에 정보가 먼저 저장되고, 이를 복사하여 렉시컬 환경이 생성된다.
 
-### 2.2. Lexical Environment
+#### 2.2.2. Lexical Environment
 내부의 내용은 변수 환경과 동일하나, 스냅샷을 유지하지 않고 상태가 가변적이다. ES6+ 부터 변수 중 let와 const로 선언된 변수만 취급한다. 추가로 this Binding이 렉시컬 환경에 포함되었다.
 
 </details>
@@ -120,7 +122,6 @@ Lexical Environment 안에 함수와 변수 선언을 저장하는 곳이다.
 
 - **Declarative Environment Record** : 변수 및 함수 선언
 - **Object Environment Record** : 전역 코드에서의 환경 레코드  
-  Object Environment Record는 전역 코드의 Lexical Environment의 경우에 사용되며, 변수와 함수의 선언 뿐만 아니라 전역 객체(`window`)도 저장한다.
 
 Environment Records가 생성될 때 호이스팅이 일어난다. 단, 이는 다른 언어와는 다른 방식을 사용하는데, 선언만 끌어올려진다는 점이다.
 
