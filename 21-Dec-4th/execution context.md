@@ -169,7 +169,7 @@ a();
 ```
 
 ### 3.2. Reference to Outer Environment
-외부 환경에 대한 참조는 외부에 있는 Lexical Environment 환경으로 접근한다는 의미다. 자바스크립트 엔진이 현재의 Lexical Environment에서 변수를 찾지 못했다면, 외부 환경에서 해당 변수를 찾는다.
+외부 환경에 대한 참조는 외부 환경으로 접근한다는 의미다. 자바스크립트 엔진이 현재의 에서 변수를 찾지 못했다면, 외부 환경에서 해당 변수를 찾는다.
 
 ### 3.3. this Binding
 ES6+ 부터는 Environment Records에서 수행된다.  
