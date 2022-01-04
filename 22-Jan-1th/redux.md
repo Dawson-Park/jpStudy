@@ -1,11 +1,11 @@
 # Redux
-[이미지]  
+![redux_1](https://user-images.githubusercontent.com/94957353/148014962-ea56512c-f69e-4068-bb45-f09166b05f48.png)  
 `Context API` 등장 이전, 컴포넌트 간에 데이터 전달은 상당히 복잡했고 이를 개선하기 위해 `Context API`가 등장하게 됐습니다. `Redux`는 `Context API`의 전역 데이터를 쉽게 다루기 위해 만들어진 라이브러리입니다.
 
-[이미지]  
+![redux_2](https://user-images.githubusercontent.com/94957353/148014974-da9e6559-1576-4a9e-b9f1-0da4ca132fc5.png)  
 `Redux`는 `Flux`구조에서 영감을 받아 만들어졌다. 하지만 `Flux`와는 달리 단 하나의 `Store`를 가지고 있고, 불변적인 특성이 있으며, `dispatcher`를 가지고 있지 않습니다. 단 `react-redux`에서는 `dispatch()`를 통해 `Store`를 제어하는데, 이는 react의 특성으로 인한 것입니다.
 
-[이미지]
+![redux_5](https://user-images.githubusercontent.com/94957353/148015012-1a5a14de-6524-41bc-82d3-06d4aabc16b9.png)  
 
 ## 개요
 ```
@@ -230,9 +230,10 @@ export default store;
 ```
 `composeWithDevTools(applyMiddleware())` 구문을 `createStore`의 인자로 추가합니다.
 
-[이미지]  
+![redux_3](https://user-images.githubusercontent.com/94957353/148015046-234b8d69-af2f-4482-ae81-12e6f4fffad6.png)  
 Redux가 추가된 것을 확인 할 수 있습니다.  
-[이미지]
+
+![redux_4](https://user-images.githubusercontent.com/94957353/148015061-e63c3a32-ddc2-46c9-824e-060e4a1e7190.png)  
 Redux의 동작 상황을 확인 할 수 있습니다.
 
 ## 더 알아보기
@@ -240,37 +241,3 @@ Redux의 동작 상황을 확인 할 수 있습니다.
 - redux-thunk
 - function*
 - redux-saga
-
-[//]: # (## MiddleWare)
-
-[//]: # (non-middleware, middleware, redux-devtools, )
-
-[//]: # ()
-[//]: # (## Redux-thunk)
-
-[//]: # (redux-thunk)
-
-[//]: # ()
-[//]: # (## Redux-promise-middleware)
-
-[//]: # (redux-promise-middleware)
-
-[//]: # ()
-[//]: # (## Ducks Pattern)
-
-[//]: # (ducks pattern)
-
-[//]: # ()
-[//]: # (## router-redux)
-
-[//]: # (router-redux : router v6에서 동작하지 않음)
-
-[//]: # ()
-[//]: # (## redux-saga)
-
-[//]: # (redux-saga)
-
-[//]: # ()
-[//]: # (## redux-actions)
-
-[//]: # (redux-actions)
