@@ -50,13 +50,14 @@ foo();
 ## 2. 실행 컨텍스트의 구성
 <details><summary><b>ES4 까지의 실행 콘텍스트 구조</b></summary>
 
+### 2.1. ES4 까지의 실행 콘텍스트 구조
 실행 컨텍스트는 물리적으로는 객체의 형태를 가지며 3가지 프로퍼티를 소유한다.
 
 1. **Variable Object** : 변수 객체
 2. **Scope chain** : 스코프 체인
 3. **this Value** : `this`
 
-### 2.1. Variable Object
+#### 2.1.1. Variable Object
 변수객체(Variable Object, VO)란, 자바스크립트 엔진이 실행 컨텍스트를 생성할 때 실행에 필요한 정보를 담아놓은 객체를 의미한다. Variable Object는 코드가 실행될 때 엔진에 의해 참조되며, 코드에선 접근할 수 없다.
 
 - 변수
@@ -75,7 +76,7 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 
 ![3](https://user-images.githubusercontent.com/94957353/147031666-661b59cc-294c-4b10-a597-cdea05b0779f.png)
 
-### 2.2. Scope Chain
+#### 2.1.2. Scope Chain
 스코프 체인(Scope Chain, SC)은 일종의 리스트로써 전역 객체와 함수의 활성 객체를 차례로 가리키고 있다.
 
 ![4](https://user-images.githubusercontent.com/94957353/147031673-4da791ed-4ef3-4c4d-b382-98766296921b.png)
@@ -83,13 +84,14 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 엔진은 스코프 체인을 통해 렉시컬 스코프(선언으로 정해지는 변수의 범위)를 파악한다. 함수가 중첩되어 있을 때, 하위함수에서 상위함수의 스코프와 전역 스코프까지 참조할 수 있는데, 스코프 체인을 통해 가능하다.이렇듯 하위 스코프와 상위 스코프가 연결되기 때문에 이를 스코프 체인이라 부르는 것이다.  
 스코프 체인은 함수의 숨겨진 프로퍼티인 `[[Scope]]`로 참조할 수 있다.
 
-### 2.3. this Value
+#### 2.1.3. this Value
 `this` 프로퍼티에는 `this` 값이 할당 된다. `this`에 할당되는 값은 함수의 호출 패턴에 의해 결정된다.
 
 </details>
 
 <details><summary><b>ES5 이후의 실행 콘텍스트 구조</b></summary>
 
+### 2.2. ES5 이후의 실행 콘텍스트 구조
 실행 컨텍스트는 2가지 구성을 가지고 있다.
 
 1. **Variable Environment** : 변수 환경
@@ -98,10 +100,10 @@ Variable Object는 실행 컨텍스트의 속성이기 때문에 값을 갖는�
 
 ES5까지 Variable Environment와 Lexical Environment의 차이점은 최초값을 유지하느냐의 차이 뿐이었지만, ES6+ 이후부터는 VE엔 var를, LE엔 let와 const를 저장한다는 차이점이 생겼다.
 
-### 2.1. Variable Environment
+#### 2.2.1. Variable Environment
 변수 환경에 담겨진 내용은 렉시컬 환경과 동일하다. 다만 최초 실행 시의 스냅샷을 유지하는 특성이 있다. ES6+ 부터는 변수 중 var로 선언된 변수만 취급한다. 실행 컨텍스트를 실행할 때 변수 환경에 정보가 먼저 저장되고, 이를 복사하여 렉시컬 환경이 생성된다.
 
-### 2.2. Lexical Environment
+#### 2.2.2. Lexical Environment
 내부의 내용은 변수 환경과 동일하나, 스냅샷을 유지하지 않고 상태가 가변적이다. ES6+ 부터 변수 중 let와 const로 선언된 변수만 취급한다. 추가로 this Binding이 렉시컬 환경에 포함되었다.
 
 </details>
@@ -120,7 +122,6 @@ Lexical Environment 안에 함수와 변수 선언을 저장하는 곳이다.
 
 - **Declarative Environment Record** : 변수 및 함수 선언
 - **Object Environment Record** : 전역 코드에서의 환경 레코드  
-  Object Environment Record는 전역 코드의 Lexical Environment의 경우에 사용되며, 변수와 함수의 선언 뿐만 아니라 전역 객체(`window`)도 저장한다.
 
 Environment Records가 생성될 때 호이스팅이 일어난다. 단, 이는 다른 언어와는 다른 방식을 사용하는데, 선언만 끌어올려진다는 점이다.
 
@@ -168,7 +169,7 @@ a();
 ```
 
 ### 3.2. Reference to Outer Environment
-외부 환경에 대한 참조는 외부에 있는 Lexical Environment 환경으로 접근한다는 의미다. 자바스크립트 엔진이 현재의 Lexical Environment에서 변수를 찾지 못했다면, 외부 환경에서 해당 변수를 찾는다.
+외부 환경에 대한 참조는 외부 환경으로 접근한다는 의미다. 자바스크립트 엔진이 현재의 에서 변수를 찾지 못했다면, 외부 환경에서 해당 변수를 찾는다.
 
 ### 3.3. this Binding
 ES6+ 부터는 Environment Records에서 수행된다.  
@@ -188,7 +189,7 @@ Lexical Environment는 다음과 같은 일을 한다.
 
 - **Environment Records**
   - **Declarative environment record** : 식별자를 저장
-  - **Object environment record** : 전역 코드에 대한 렉시컬 환경. `window` 객체를 정의하고 저장한다.
+  - **Object environment record** : 전역 코드에서의 환경 레코드. `window` 객체를 정의하고 저장한다.
 - **Reference to outer environment** : 외부 렉시컬 환경에 대한 접근을 정의한다.
 - **This binding** : this 값을 결정한다.
   - 함수 컨텍스트에서 `object reference`로 호출했다면 this는 해당 객체를 가리킨다
@@ -232,16 +233,16 @@ c = multiply(a, 30);
 2. `mutiply(a, 30)` 구문이 실행된다
 
 ### 5.4. multiply 함수 실행 컨텍스트 생성
-![슬라이드5](https://user-images.githubusercontent.com/94957353/147031797-0c952760-de11-4ebb-ba39-a3f9f02fc165.PNG)
+![프레젠테이션1](https://user-images.githubusercontent.com/94957353/147210349-723551e8-1d57-46ed-9c7f-4d1b54be32f2.png)
 1. multiply 함수 실행 컨텍스트가 생성된다
 2. 제어권이 multiply 실행 컨텍스트로 이동한다
 3. multiply 컨텍스트의 렉시컬 환경과 변수 환경이 초기화 된다
 4. 환경 레코드에 변수 선언이 호이스팅 된다
-5. 외부 환경 참조는 전역 실행 컨텍스트의 렉시컬 환경을 가리킨다
+5. 외부 환경 참조는 전역 실행 컨텍스트의 환경 레코드를 가리킨다
 6. `this`는 별도의 바인딩이 없었기 때문에 전역 객체를 가리킨다
 
 ### 5.5. multiply 함수 실행 컨텍스트 실행
-![슬라이드6](https://user-images.githubusercontent.com/94957353/147031805-7fc34e2f-01c4-436a-8fa9-f1b38d2254ca.PNG)
+![프레젠테이션12](https://user-images.githubusercontent.com/94957353/147210412-23124b47-0eb2-4780-9024-c5a6554138c7.png)
 1. `var g`에 20이 할당된다
 2. `return e*f*g` 구문이 실행된다
 3. 인자의 첫번째 값 `e`는 `a`로 multiply 함수 실행 컨텍스트에서 해당 값을 찾는다

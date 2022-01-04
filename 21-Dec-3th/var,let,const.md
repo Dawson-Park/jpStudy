@@ -124,27 +124,23 @@ console.log(vName);
 
 ### let
 ```javascript
-console.log(lName); // ReferenceError: lName is not defined
-let lName = '2';
+let foo = 1;
+{
+  console.log(foo); // ReferenceError: Cannot access 'foo' before initialization
+  let foo = 2;
+}
 ```
 `let`의 선언은 호이스팅에 의해 최상단으로 끌어올려집니다. 하지만 `let`은 `var`와 달리 선언단계와 초기화단계가 분리되어있습니다.  
-따라서 `lName = '2'`가 실행되기 전에 `lName`이 호출되고 여기엔 초기화되지 않은 값이 저장되어 있기 때문에 `lName is not defined`(not declared가 아님) 오류를 출력합니다.  
+따라서 `foo = 1`이 실행되기 전에 `foo`이 호출되고 여기엔 초기화가 되지 않았기 때문에 `Cannot access 'foo' before initialization`(foo는 초기화 이전에 접근할 수 없다) 오류를 출력합니다.  
 선언이 호이스팅되고 초기화가 될때까지의 시점을 일시적 사각지대(Temporal Dead Zone, TDZ)라 부릅니다.
-
-```javascript
-console.log(typeof let1); // ReferenceError: let1 is not defined
-let let1 = 10;
-console.log(typeof undeclaredVariable); // undefined
-```
-`let`이 호이스팅이 되지 않는다는 방식으로 생각할 경우 위의 예제를 이해하긴 어렵습니다.  
-`let`과 `const`는 실행 컨텍스트에서 생성될 때 선언단계와 초기화단계가 분리되어 있습니다.  
-`let let1 = 10;` 구문까지 실행 컨텍스트가 진행되지 않으면, 초기화와 할당이 되지 않습니다.  
-즉, 호이스팅이 되지 않아서 오류가 발생한 것이 아니고, 호이스팅되어 선언만 끌어올려졌기 때문에 오류가 발생한 것입니다.  
 
 ### const
 ```javascript
-console.log(cName); // ReferenceError: cName is not defined
-const cName = '3';
+const bar = 1;
+{
+  console.log(bar); // ReferenceError: Cannot access 'bar' before initialization
+  const bar = 2;
+}
 ```
 `const`의 선언은 `let`의 선언과 동일하게 진행됩니다. 선언만 호이스팅되며, 그전에 값을 호출하면 `not defined` 오류를 출력합니다.  
 이는 `const` 역시 `let`처럼 선언 단계와 초기화 단계가 분리되어있기 때문입니다.
