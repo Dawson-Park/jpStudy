@@ -1,5 +1,5 @@
 # Redux-Middleware
-![1](https://user-images.githubusercontent.com/94957353/150963693-1540073d-e5f5-4b80-ab05-7d417557976d.png)  
+![1](https://user-images.githubusercontent.com/94957353/150963840-c7387b9a-3ba8-4433-99ac-0e0eff988402.png)  
 리덕스 미들웨어는 액션을 디스패치했을 때, 리듀서에서 이를 처리하기 전에 설정된 작업을 실행하도록 도와줍니다. 액션과 리듀서의 사이에 있는 중간자라 볼 수 있습니다. 액션을 콘솔에 남기거나, 액션을 취소 및 추가, 변형 하는 등 다양한 역할을 수행할 수 있습니다. 주로 리덕스에서 비동기 작업을 실행할 때 사용합니다. 주요 라이브러리로는 [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-observable](https://redux-observable.js.org/), [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware), [redux-saga](https://redux-saga.js.org/) 가 있습니다.
 
 ## Redux Middleware의 구조
