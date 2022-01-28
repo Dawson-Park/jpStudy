@@ -19,7 +19,7 @@ console.log(gen.next()); // { value: undefined, done: false }
 ```
 `Generator Function`은 함수 실행의 중단과 재개가 가능한 함수입니다. 함수 실행 시 `Iterator` 객체를 반환하게되고, 이 객체에서 `next()`를 호출하게 되면, `yield`문을 만날떄 까지 함수가 실행되고, `yield`의 값이 반환됩니다. `next()`를 다시 실행하게 되면 중단되었던 지점에서 재개되어 다음의 `yield`를 만날 때까지 실행됩니다. 더이상 `yield`가 없거나, `return()` 또는 `throw()` 메소드가 실행되면 종료됩니다.
 
-## Redux Saga
+## Redux Saga 기본구조
 ```javascript
 // src/redux/store.js
 import createSagaMiddleware from "redux-saga";
