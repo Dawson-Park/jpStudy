@@ -1,4 +1,4 @@
-#MobX  
+# MobX
 `MobX`는 `Redux`처럼 상태를 관리하는 라이브러리입니다. 이들과 차별화되는 점으로는 다음과 같습니다.
 1. `Flux` 패턴을 사용하는 `Redux`와 달리 `Observer` 패턴을 사용합니다.
 2. `Decorator`를 적극 활용 
