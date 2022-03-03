@@ -1,4 +1,4 @@
-# Redux-Saga
+# Redux Saga
 `redux-saga`는 순수하지 않은 `fetching`이나 브라우저의 캐시에 접근하는 등의 `side-effect`들을, 더 쉽고 좋게 만들기 위한 라이브러리입니다. 사가는 사이드 이펙트만을 담당하는 별도의 쓰레드와 같은 것으로 보면 됩니다. 그리고 이 쓰레드를 실행하거나, 멈추거나, 취소할 수 있게 만듭니다.  
 리덕스 사가는 ES6의 문법인 `function*`을 사용하며, 비동기 흐름을 마치 동기식 자바스크립트 코드처럼 보이게 만듭니다. `redux-thunk`와 달리 비동기 흐름을 더 쉽게 테스트 할 수 있고, 액션을 순수하게 유지할 수 있습니다.
 
@@ -19,7 +19,7 @@ console.log(gen.next()); // { value: undefined, done: false }
 ```
 `Generator Function`은 함수 실행의 중단과 재개가 가능한 함수입니다. 함수 실행 시 `Iterator` 객체를 반환하게되고, 이 객체에서 `next()`를 호출하게 되면, `yield`문을 만날떄 까지 함수가 실행되고, `yield`의 값이 반환됩니다. `next()`를 다시 실행하게 되면 중단되었던 지점에서 재개되어 다음의 `yield`를 만날 때까지 실행됩니다. 더이상 `yield`가 없거나, `return()` 또는 `throw()` 메소드가 실행되면 종료됩니다.
 
-## Redux Saga
+## Redux Saga 기본구조
 ```javascript
 // src/redux/store.js
 import createSagaMiddleware from "redux-saga";
