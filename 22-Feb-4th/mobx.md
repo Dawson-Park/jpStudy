@@ -5,7 +5,7 @@
 3. TypeScript가 Base인 라이브러리 
 4. `Redux`와 다르게 단일 스토어를 강제하지 않음
 
-![mobx]()  
+![MobX_flow](https://user-images.githubusercontent.com/94957353/156477119-1af7fbe4-f2a8-4cab-95a7-e2351213e396.png)  
 액션이 발생하면 `Observable State`가 업데이트 되고, `Computed Values`에 전달해 변경사항이 있으면 `Side-effects`를 일으킵니다. 이것이 MobX의 기본 흐름입니다.
 
 ## Decorator 설정
