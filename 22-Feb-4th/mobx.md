@@ -24,7 +24,7 @@ module.exports = override(addDecoratorsLegacy());
 ```
 package.json가 있는 폴더에 config-override.js를 위와 같이 작성하면, 자바스크립트에서 `Decorator`를 사용할 수 있습니다.
 
-```json
+```
 // package.json
 {
   "scripts": {
@@ -42,7 +42,7 @@ npm i autobind-decorator
 ```
 this를 자동으로 bind 해주는 autobind-decorator를 설치해준다.
 
-```json
+```
 // jsconfig.json
 {
   "compilerOptions": {
@@ -60,7 +60,7 @@ npx create-react-app mobx-ts-start --template typescript
 cd mobx-ts-start
 npm i autobind-decorator
 ```
-```json
+```
 // tsconfig.json
 {
   ...
